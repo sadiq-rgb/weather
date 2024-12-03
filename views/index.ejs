@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    
+    
+    
 </head>
 <body>
-    <% if (locals.lat){ %>
-        <h1>current weather report:<%= report %></h1>
-        <p>lattitude is <%= lat %></p>
-        <p>longitude is <%= lon %></p>
-        <p>temperature is <%= temp %></p>
-        
-    <% } %>
+    <h1 class="t">WEATHER APP</h1>
+
+    
     
     <form action="/submit" method="post">
         <label for="name">City Name:</label>
@@ -22,6 +22,18 @@
 
 
     </form>
+
+    <% if (locals.lat){ %>
+        <div class="ab">
+            <h1 class="t"><%= City %></h1>
+            <h1>current weather report:<%= report %></h1>
+            <p>lattitude is <%= lat %></p>
+            <p>longitude is <%= lon %></p>
+            <p>temperature is <%= temp %></p>
+        </div>
+        
+    <% } %>
+   
     
 </body>
 </html>

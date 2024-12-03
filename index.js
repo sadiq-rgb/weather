@@ -6,8 +6,7 @@ const app= express();
 const port=8000;
 
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static("public"));
-
+app.use(express.static("assets"));
 app.get("/",(req,res)=>{
     res.render("index.ejs")
 })
@@ -29,6 +28,7 @@ app.post("/submit",async (req,res)=>{
         const tem=result2.data.main.temp;
         console.log(rep);
         res.render("index.ejs",{
+            City:city,
             report:rep,
             lat:latt,
             lon:lon,
