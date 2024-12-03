@@ -6,6 +6,14 @@
     <title>Document</title>
 </head>
 <body>
+    <% if (locals.lat){ %>
+        <h1>current weather report:<%= report %></h1>
+        <p>lattitude is <%= lat %></p>
+        <p>longitude is <%= lon %></p>
+        <p>temperature is <%= temp %></p>
+        
+    <% } %>
+    
     <form action="/submit" method="post">
         <label for="name">City Name:</label>
         <input type="text" id="name" name="name" required>
@@ -14,10 +22,6 @@
 
 
     </form>
-    <% if (locals.lat){ %>
-        <p>lattitude is <%= lat %></p>
-        <p>longitude is <%= lon %></p>
-    <% } %>
     
 </body>
 </html>

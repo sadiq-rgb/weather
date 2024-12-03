@@ -17,17 +17,23 @@ const api_key="8b2828ee76bdbb8da3cd427493e1c68a";
 app.post("/submit",async (req,res)=>{
     const city=req.body.name;
 
-    try{
-        const result=await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${api_key}}`);
-        const latt=result.data.lat;
-        const long=result.data.lon;
-        const result2= await axios.get(`https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${api_key}`);
 
-        console.log(result.data);
-        console.log(result2.data);
+    try{
+     
+        
+        const result2= await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${api_key}`);
+
+        const latt=result2.data.coord.lat;
+        const lon=result2.data.coord.lon;
+        const rep=result2.data.weather[0].description;
+        const tem=result2.data.main.temp;
+        console.log(rep);
         res.render("index.ejs",{
+            report:rep,
             lat:latt,
-            lon:long
+            lon:lon,
+            temp:tem
+
         })
 
     }catch(error){
