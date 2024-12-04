@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
     
-    
+    <% if (locals.report=="mist"){%>
+      
+        <link rel="stylesheet" type="text/css" href="styles/maa.css">
+    <% } else { %>
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <% } %>
+   
     
 </head>
 <body>
@@ -22,6 +27,8 @@
 
 
     </form>
+  
+    
 
     <% if (locals.lat){ %>
         <div class="ab">
